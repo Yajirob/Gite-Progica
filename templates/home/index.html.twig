@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title%}Bienvenue{% endblock %}
+
+{% block body %}
+
+	<h1>Bienvenue sur mon super site</h1>
+
+	<div class="row">
+        {% for gite in gites %}
+            <div class="col-md-4 mt-3">
+                <div class="card">
+                <img src="/images{{ gite.imageName }}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">{{gite.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ gite.createdAt|format_datetime()}}</h6>
+                        <p class="card-text">{{gite.description}}</p>
+                        <a class="btn btn-secondary" href="{{ path('gite.show', {'id': gite.id} ) }}">Voir le gite</a>
+                    </div>    
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{{path('gite.index') }}" class="btn btn-success">Voir tous les gites</a>
+    </div>
+{% endblock %}

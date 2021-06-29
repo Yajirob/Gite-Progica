@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Dashboard Gite
+{% endblock %}
+
+{% block body %}
+	<h1>Administration des Gites PROGICA</h1>
+
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			<p>{{message}}</p>
+		</div>
+
+    {% endfor %}
+
+	 <a href="{{path('admin.new') }}" class="btn btn-warning">Créer</a>
+
+	<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<th>#id</th>
+				<th>Nom</th>
+				<th>Action</th>
+			</thead>
+			<tbody>
+				{% for gite in gites %}
+					<tr>
+						<th>#{{gite.id}}</th>
+						<th>{{gite.name}}</th>
+						<th>
+							<a href="" class="btn btn-primary">Editer</a>
+						</th>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Nouveau Gite
+{% endblock %}
+
+{% block body %}
+
+	<div class="row">
+		<h1>Ajouter un Gite PROGICA</h1>
+	</div>
+	{{ form_start(formGite)}}
+	<div class="row">
+		<div class="col-md-6">
+			{{form_row(formGite.name)}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			{{form_row(formGite.description)}}
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">{{form_row(formGite.surface)}}</div>
+		<div class="col-md-4">{{form_row(formGite.bedrooms)}}</div>
+		<div class="col-md-4">{{form_row(formGite.imageFile)}}</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4">{{form_row(formGite.address)}}</div>
+		<div class="col-md-4">{{form_row(formGite.city)}}</div>
+		<div class="col-md-4">{{form_row(formGite.postal_code)}}</div>
+	</div>
+	<div class="row">
+			<div class="col-md-4">{{form_row(formGite.animals)}}</div>
+		<div class="col-md-6">
+			{{ form_row(formGite.equipements)}}
+		</div>
+	</div>
+	<div class="mt-3">
+		<input type="submit" value="Créer" class="btn btn-primary">
+	</div>
+	{{form_end(formGite)}}
+{% endblock %}

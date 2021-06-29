@@ -1,0 +1,59 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Le gite
+{% endblock %}
+
+{% block body %}
+
+	<div class="p-5 mb-4 bg-light rounded-3">
+		<div class="col-auto">
+			<div class="container-fluid py-5">
+				<h1 class="diplay-5 fw-bold">{{ gite.name }}</h1>
+				<p class="fs-4">{{ gite.description }}</p>
+				<button class="btn btn-success" id="contact">Contact</button>
+				<div class="form-contact hidden">
+					{{ form_start(form)}}
+						{{ form_rest(form)}}
+						<button type="submit" class="btn btn-primary mt-3">Envoyer</button>
+					{{ form_end(form)}}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<table class="table table-striped">
+				<tbody>
+					<tr>
+						<th>Surface</th>
+						<td>{{gite.surface}}</td>
+					</tr>
+					<tr>
+						<th>Chambre</th>
+						<td>{{gite.bedrooms}}</td>
+					</tr>
+					<tr>
+						<th>Animaux</th>
+						{% if gite.animals %}
+							<td>Acceptés</td>
+						{% else %}
+							<td>Refusés</td>
+						{% endif %}
+					</tr>
+					<tr>
+						<th>Equipements</th>
+						<td>
+							{% for equipement in gite.equipements %}
+								<li>{{equipement.name}}</li>
+							{% endfor %}
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-6"></div>
+	</div>
+{% endblock %}

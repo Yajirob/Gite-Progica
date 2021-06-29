@@ -1,0 +1,56 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+	Les Gites PROGICA
+{% endblock %}
+
+{% block body %}
+
+	<h1>Les Gites disponibles</h1>
+
+	<div class="row mt-3 mb-3">
+		{{form_start(form)}}
+		<div class="col-md-3">
+			{{form_row(form.minSurface)}}
+		</div>
+		<div class="col-md-3">
+			{{form_row(form.maxBedrooms)}}
+		</div>
+		<div class="col-md-3 mt-3">
+			{{ form_rest(form)}}
+		</div>
+
+		{{form_end(form)}}
+
+	</div>
+
+	<div class="row">
+		{% for gite in gites %}
+			<div class="col-md-4">
+				<div class="card" style="width: 18rem;">
+					{% if gite.imageName %}
+						<img src="{{ vich_uploader_asset(gite, "imageFile") }}" class="card-img-top" alt="">
+					{% else %}
+						<img src="images/other/53529.png" class="card-img-top" alt="">
+					{% endif %}
+					<div class="card-body">
+						<h5 class="card-title">{{gite.name}}</h5>
+						<h6 class="card-subtitle mb-2 text-muted">{{ gite.createdAt|format_datetime()}}</h6>
+						<p class="card-text">
+							{{gite.description}}
+							<h6 class="card-subtitle mb-2 text-muted">
+								Surface :
+								{{ gite.surface }}
+								<br>
+								bedrooms :
+								{{ gite.bedrooms }}
+							</h6>
+						</p>
+						<a class="btn btn-secondary" href="{{ path('gite.show', {'id': gite.id} ) }}">Voir le gite</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+
+{% endblock %}

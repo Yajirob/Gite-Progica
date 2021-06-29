@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Contact</title>
+	</head>
+	<body>
+		<p>
+			Je suis
+			{{ contact.firstname}}
+			{{ contact.name}},
+		</p>
+		<p>
+			j'aimerais avori des renseignements sur le Gite
+			{{ contact.gite.name }}
+			( id n°
+			{{ contact.gite.id}})
+		</p>
+		<p>
+			Vous pouvez me contacter ici:
+			<ul>
+				<li>Email :
+					{{ contact.email}}</li>
+				<li>Tél :
+					{{ contact.phone}}</li>
+			</ul>
+		</p>
+
+	</body>
+</html>
