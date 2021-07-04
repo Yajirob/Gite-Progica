@@ -102,7 +102,7 @@ class Gite
 
     /**
      *  @var String|null
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Image(
      *      mimeTypes={"image/jpeg", "image/gif", "image/png"},
      *      mimeTypesMessage="L'image doit être au format JPEG"
@@ -111,7 +111,8 @@ class Gite
     private $imageName;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @var date|null
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updated_at;
 

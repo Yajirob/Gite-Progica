@@ -37,7 +37,6 @@ class GiteFixtures extends Fixture
         $manager->flush(); 
 
 
-
         for ($i=0; $i <= 50; $i++) {
             $gite = new Gite();
             $gite
@@ -50,7 +49,9 @@ class GiteFixtures extends Fixture
                 ->setPostalCode($faker->postcode())
                 ->setAnimals($faker->boolean())
                 ->addEquipement($faker->randomElement($equipements))
-                ->setCreatedAt($faker->dateTimeThisYear('now','Europe/Paris'));
+                ->setImageName($faker->imageUrl(640, 480))
+                ->setCreatedAt($faker->dateTimeThisYear('now','Europe/Paris'))
+                ->setUpdatedAt(new \DatetimeImmutable('now'));
 
                 $manager->persist($gite);
         } 

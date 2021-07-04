@@ -20,7 +20,7 @@ final class Version20210627183653 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE gite ADD image_name VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE gite ADD image_name VARCHAR(255) NULL');
     }
 
     public function down(Schema $schema): void

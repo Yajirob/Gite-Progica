@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 
 class GiteSearch {
 
@@ -11,7 +12,7 @@ class GiteSearch {
      * @Assert\Range(
      *          min=20,
      *          max=500,
-     *          notInRangeMessage= "La surface doit être comprise entre {{ min }} et {{ max}} m²"
+     *          notInRangeMessage= "La surface doit être comprise entre {{ min }} et {{ max }} m²"
      * )
      */
     private $minSurface;

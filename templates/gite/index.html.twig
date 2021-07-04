@@ -29,7 +29,7 @@
 			<div class="col-md-4">
 				<div class="card" style="width: 18rem;">
 					{% if gite.imageName %}
-						<img src="{{ vich_uploader_asset(gite, "imageFile") }}" class="card-img-top" alt="">
+						<img src="{{gite.imageName }}" class="card-img-top" alt="">
 					{% else %}
 						<img src="images/other/53529.png" class="card-img-top" alt="">
 					{% endif %}
